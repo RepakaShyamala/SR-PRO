@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS smart_traffic;
+USE smart_traffic;
+
+CREATE TABLE IF NOT EXISTS plates (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  plate_text VARCHAR(64),
+  confidence FLOAT,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+  image_path VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS vehicle_counts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  vehicle_type VARCHAR(32),
+  count_in_frame INT,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS traffic_actions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  action VARCHAR(128),
+  reason VARCHAR(255),
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
